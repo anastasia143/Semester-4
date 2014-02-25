@@ -10,7 +10,7 @@ palindrom s = str == rev str
           where str = map toLower (filter isAlpha s)
 
 main = do
-     putStrLn("A roza upala na lapu azora")
-     putStrLn(show $ palindrom "a roza upala na lapu azora")
+     putStrLn("A roza upala na lapu Azora")
+     putStrLn(show $ palindrom "A roza upala na lapu Azora")
      putStrLn("jdvckndfclked")
      putStrLn(show $ palindrom "jdvckndfclked")
