@@ -3,9 +3,9 @@ import Control.Monad
 elemWithSmallNeighbors :: [Int] -> Maybe Int
 elemWithSmallNeighbors [] = Nothing
 elemWithSmallNeighbors [x] = Nothing
--- zip3 (x:y:zs) (y:zs) zs - склеиваем один список в пары по 3, чтобы сравнивать текущий элемент и его соседей
--- liftM comparison - делаем сравнение в каждой тройке; return, если нашли нужный элемент
--- foldr mplus Nothing - делаем свертку, чтобы возвращать не список, а одно значение (mplus x _ = x в Maybe)
+-- zip3 (x:y:zs) (y:zs) zs - glue one list in a pair of 3 for comparison between the current element and its neighbors
+-- liftM comparison - comparison in every triplet; return, if necessary element is found
+-- foldr mplus Nothing - convolution for return one value (mplus x _ = x in Maybe)
 elemWithSmallNeighbors (x:y:zs) = foldr mplus Nothing (liftM comparison $ zip3 (x:y:zs) (y:zs) zs)
                                   where comparison (a,b,c) = if (a < b) && (b > c) then Just b else Nothing
 
